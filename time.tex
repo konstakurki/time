@@ -1,0 +1,303 @@
+\documentclass[10pt,oneside%,draft%
+]{memoir}
+
+% --- Packages ----------------------------------------------
+
+\usepackage[USenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+\usepackage{verbatim}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[hyphens]{url}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,linktocpage=true]{hyperref}
+
+% --- Book appearance ---------------------------------------
+
+\setstocksize{57em}{37em}
+\settrimmedsize{57em}{37em}{*}
+\setlrmarginsandblock{5em}{*}{1}
+\setulmarginsandblock{5em}{*}{1}
+\setlength{\headsep}{1.33em}
+\setlength{\footskip}{2.5em}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.6em}
+\fixpdflayout
+\checkandfixthelayout
+
+\makepagestyle{thphp}
+\makeevenhead{thphp}{}{\rightmark}{}
+\makeoddhead{thphp}{}{\rightmark}{}
+\makeoddfoot{thphp}{}{{\thepage}}{}
+\makeevenfoot{thphp}{}{{\thepage}}{}
+\pagestyle{thphp}
+
+\renewcommand{\cftdot}{}
+\setlength\cftparskip{1pt}
+
+% --- Mathematical notation ---------------------------------
+
+% Environments
+\newenvironment{eqna}{\begin{IEEEeqnarray*}{c}}{\end{IEEEeqnarray*}\ignorespacesafterend}
+\newenvironment{eqnb}{\begin{IEEEeqnarray*}{rCl}}{\end{IEEEeqnarray*}\ignorespacesafterend}
+%\newcommand{\nimi}[1]{\IEEEyesnumber\label{#1}}
+\renewenvironment{equation}{\sdfsdfsd}{\sdfsf}
+\renewenvironment{align}{\sdfsfsd}{\sdfsd}
+
+% Derivatives
+\newcommand{\der}[2]{\frac{\dif#1}{\dif#2}}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+
+% Lorentz transformations
+\newcommand{\lort}[2]{\Lambda^{#1}_{\phantom{#1}{#2}}}
+\newcommand{\lori}[2]{\Lambda_{#1}^{\phantom{#1}{#2}}}
+
+\newcommand{\chris}[3]{\{{_{#1}}{^{#2}}{_{#3}}\}}
+
+% Miscellaneous
+\newcommand{\puoli}{\frac{1}{2}}
+\newcommand{\yksi}{\mathfrak{1}}
+\newcommand{\andd}{\qquad\textrm{and}\qquad}
+\newcommand{\wheree}{\qquad\textrm{where}\qquad}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\dvec}[1]{\dot{\vec{#1}}}
+\newcommand{\ddvec}[1]{\ddot{\vec{#1}}}
+\newcommand{\pvec}[1]{\primed{\vec{#1}}}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\reaaliosa}{Re}
+\DeclareMathOperator{\imaginaariosa}{Im}
+\renewcommand{\Re}{\reaaliosa}
+\renewcommand{\Im}{\imaginaariosa}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\primed}[1]{\hat{#1}}
+\newcommand{\paika}{\mathfrak{s}}
+\newcommand{\ind}[1]{\mathfrak{#1}}
+\newcommand{\circc}{\tau}
+% UNCOMMENT NEXT LINE FOR TRADITIONAL CIRCLE CONSTANT 2 PI
+%\renewcommand{\circc}{2\pi}
+
+% Colors and indices
+\definecolor{safi}{RGB}{0,100,100}
+\definecolor{oranssi}{RGB}{255,128,0}
+\newcommand{\coa}{{\color{black}\bullet}}
+\newcommand{\cob}{{\color{oranssi}\blacklozenge}}
+\newcommand{\coc}{{\color{cyan}\blacktriangleright}}
+\newcommand{\cod}{{\color{red}\blacktriangleleft}}
+\newcommand{\coe}{{\color{magenta}\blacktriangle}}
+\newcommand{\cof}{{\color{green}\blacktriangledown}}
+\newcommand{\cog}{{\color{safi}\bigstar}}
+\newcommand{\coh}{{\color{yellow}\blacksquare}}
+\newcommand{\tyh}{\phantom{\bullet}}
+% UNCOMMENT NEXT LINE FOR TRADITIONAL GREEK INDICES
+%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\newcommand{\tyh}{\phantom{\alpha}}
+
+% Dialog characters
+
+\newcommand{\hea}{\(\blacklozenge\)\;}
+\newcommand{\heb}{\(\Game\)\;}
+
+\begin{document}
+\frontmatter
+\begin{titlingpage}
+	\begin{centering}
+		\HUGE\textbf{Time}\\
+		\vspace{0.4em}
+		\normalsize\emph{by}\\
+		\vspace{0.4em}
+		\textsc{Konsta Kurki}\\
+		\vspace{0.4em}
+		\textsc{\today}\\
+		%\vspace{5em}
+		%\vfill
+		\vspace{5em}
+		\textbf{---work in progress---}\\
+	\end{centering}
+	\vfill
+
+	Copyright {\textcopyright} 2015 Konsta Kustaa Kurki
+
+	This work is licensed under a Creative Commons Attribution 4.0 International License. See \url{http://creativecommons.org/licenses/by/4.0/} for the license and \url{http://github.com/konstakurki/time} for the source material.
+\end{titlingpage}
+\chapter{Change log}
+\textsc{June 28, 2015}\, Initial commit to \url{github.com/konstakurki/time}
+\mainmatter
+\chapter{The beginning}
+\hea Excuse me.
+
+\heb Yes?
+
+\hea Could you tell me about time?
+
+\heb Hmm. You mean the stuff you read from the upper right corner of your iPhone?
+
+\hea I do not have an iPhone. But if I had I think it would be that.
+
+\heb Why would you like to hear about it?
+
+\hea I know how to read a clock but that's where my understanding ends and wondering begins. Sometimes I think I flow in time. Next moment I think time flows around me. And then I think nothing flows.
+
+\heb I certainly feel you! Time's a peculiar fellow. Did you notice what kind of words you just used? Like `sometimes' and `moment'.
+
+\hea Yeah, I know, it's embarrassing.
+
+\heb You cannot escape him! Or her.
+
+\hea I know! I just don't know how to communicate without referring to time. Does it mean that I don't understand my own words?
+
+\heb Well, it may be so. But don't worry---you're no worse than any one of us.
+
+\hea You mean there's no person on Earth who understands his own words?
+
+\heb I think understanding is just a feeling. Peace, acceptance. But it may be just a flash in time. In \emph{time}!
+
+\hea For me it is not so easy to accept things like the fact that now it is a different moment than a couple of minutes ago. And now it is again different.
+
+\heb It surely is. Do you understand that there is no brief answer?
+
+\hea I think I can take a long one.
+
+\heb You also think I would give you such?
+
+\hea Wouldn't you?
+
+\heb There's something in your eyes which I haven't seen before. I cannot be sure but I feel that you might really want to hear it. Am I right or are you just hoaxing me?
+
+\hea I would really, really want to hear. I want it really badly.
+
+\heb All right. But the answer is gonna be a long, long one. Actually there won't even be any single final answer. That's because I haven't found it. As far as I know no one has. All we can do is just wander around and build some theory. Beautiful, but imperfect theory. Can you accept that kind of imperfectness?
+
+\hea Just give me something. I must get somewhere with this question. Please. I've asked from many people and all they say is something really silly like 'time does not exist'. If something makes me that anxious it definitely must be there!
+
+\heb I like you. I can feel the pain inside you with all my neurons. Not that I liked that someone does not feel good, but you seem to care about things that people usually do not even notice.
+
+\heb Do you have any background?
+
+\hea Acually I do. I've studied foundations of mechanics at university. I know Newton's laws, the action principle and Hamilton's equations. And I know also some quantum mechanics.
+
+\heb Good! Then we do not have to go through elementary things.
+
+\hea But the 
+
+\section{Sharpening the question}
+\heb Tell me some important things of your life.
+
+\hea My family. And friends. Freedom.
+
+\heb Something more primitive.
+
+\hea Hmmm \ldots birth.
+
+\heb Excellent! The primitive elements we use in construing our lives are events. How would you order your birth, day you learned to speak and the cutting of your umbilical cord?
+
+\hea I guess I could order them in many ways. Of course there is the one way of ordering them, but probably you don't mean it.
+
+\heb Very often the right direction is so simple, obvious and ridiculously simple that you do not even dear to think of it. So go on.
+
+\hea Ok. So first I was born and then my umbilical cord were cut. Several years after those things I said my first word. Am I right?
+
+\heb Yes you are! What I mean by `time' is the affair---whatever it were---that creates this order. Or at least I don't know how to describe it more precisely. Do you agree?
+
+\hea I guess I do. What about measuring that affair? For example investigating how much time fits in between two events. You mentioned the corner of an iPhone, but there is some pretty complicated technology inside the thing. What if we just looked for a repeating phenomenon, say sunrise or sunset, and counted how many of them lies between the events we are interested in?
+
+\heb That is indeed how each and every clock work. The `time that firs in between the events' is called their time interval. If we count sunsets we get a bigger number than if we counted summers. But what is beautiful that the relation between the frequencies of sunsets and summers never changes! It is always something like 365. If we take any two good clocks, their relative paces remain always the same.
+
+\hea That definitely makes sense. If your clock has same kind of second today than mine, I naturally assume that same is true also tomorrow. Does this mean that we can set up an absolute number to describe time by using some reference clock and measuring time intervals to some reference event?
+
+\heb Yes it does. Traditionally we have counted winters compared to the birth of Jesus. Let us call it \(t\), a Galilean time coordinate. But because clocks may run at different paces and be started at different moments, Galilean time is absolute only up to its overal scale and its zero point, the origin of time. In other words, als \(a+b\,t\) is is as good Galilean time coordinate as \(t\) is, if \(a\) and \(b\) are some constant numbers.%It may be said that Galilean time is translation and scale invariant.
+
+\heb However, we usually use the convention that larger values of \(t\) correspond to later events. And you surely can tell future apart of the past, so \(b\) must be a positive real number.
+
+\hea But wait a second. I watched \emph{Interstellar} a couple of weeks ago. In one scene the tough guy Cooper gives a wrist watch to his daughter Murph and explains that when he returns from his space voyage and they compare their watches, they will find out that the clocks have run at different paces, even though the clocks are identical. Was it crap or what?
+
+\heb No it wasn't. Cooper is referring to a concept called proper time, which is different for him and Murph. But Cooper flies in very exotic circumstances. Here, on Earth where we cannot move as fast as Cooper the proper times of us all are pretty much the same. That effectively universal proper time is the Galilean time.
+
+\hea So why did you try to lie to me?
+
+\heb I'm sorry. But we must begin with everyday phenomenology and proceed from there---starting straight from proper time is way too difficult. But if you are patient enough we will get to it. What is important is that in the regime of our everyday life we \emph{do} have an absolute time.
+
+\hea Okay, I accept that. Let's keep \(t\).
+
+\heb There is something interesting in every phenomenon that occurs. Think about some experiment, say swinging a weight hanging from a wire, being conducted now and a year ago. How would you propose the results of the two experiments differ?
+
+\hea Well, I don't know any reason why would they differ, if the experiment is carried out in the same way.
+
+\heb Exactly. The result of the experiment is totally independent of the time when it is carried out! This holds for any experiment provided that possible variations in crucial environmental conditions are eliminated. Can you believe it?
+
+\hea Well, now when you said it, it sounds plausible. Times don't change. Or if they do, it's all about environmental conditions. Your language is interesting; you say it is interesting when nothing changes. I would say it is boring.
+
+\heb The point is that if the time of conduction truly never matters, or time is homogenic as is often said, we know that if are ever to find some fundamental laws of nature, they cannot depend on time in any way. In other words, the laws must remain unchanged if we change the valua of \(t\). This is called time translation invariance.
+
+\hea So nature possess a time translation symmetry. Now when I'm thinking of that fact I do see some beauty in it!
+
+\heb Good! You really have some sensibility.
+\section{Space}
+\heb We set up a Galilean time coordinate by choosing a clock and a reference event. Could we do something similar to some other physical thing out there?
+
+\hea You must mean space.
+
+\heb Yes I do.
+
+\hea But events are not necessarily well located in space. For example sunset happens everywhere on Earth.
+
+\heb That is true. But it is also true that not all events are located in time neither. It takes a minute or so for a sun to set down so actually sunset is not strictly located even in time. Anyway, let's talk about a physical bodies, say stones, which definitely are not located in time but do possess well--defined locations.
+
+\heb We can measure the distances between the stones, their space intervals, by tightening a rope wich has knots tied on it equidistantly between them and counting the nots. The process is very similar to measuring time intervals!
+
+\heb Further, if you and I use same kind of knot spacing, we get the same values for the distances. Like Galilean time, also Galilean space is absolute. 
+
+\hea And we can set up a space coordinate to specify a location by measuring the distance to a reference body! But clearly there are differencies. In time I can think of going forwards and backwards but not left or right. On the other hand, in space I can go even up and down.
+
+\heb You just stated the familiar assumption that we live in a three-dimensional space. To specify a location completely, we need three numbers. Those three numbers could be for example distances to three different reference bodies.
+
+\heb But a particularly convenient way to specify the location is to imagine three flat planes which are all orthogonal to each other and measure the distance to the closest point on each of them. In this way we get three spatial coordinates called Cartesian coordinates. Let me write them on a blackboard.
+\begin{eqna}
+	\vec{x}^\ind{1},\quad\vec{x}^\ind{2},\quad\vec{x}^\ind{3}.
+\end{eqna}
+It is convenient to write the index in the upstairs. I write them like \(\ind{2}\) instead of \(2\) to tell them apart from exponents.
+
+\hea And because the planes are orthogonal, we can use the Pyhtagorean theorem
+\begin{eqna}
+	\Delta\vec{x}^2=(\Delta\vec{x}^\ind{1})^2+(\Delta\vec{x}^\ind{2})^2+(\Delta\vec{x}^\ind{3})^2.
+\end{eqna}
+to calculate a distance.
+
+\hea Even though if we used identical clocks, the time coordinate was unique only up to the origin of time. Here we seem to have a same kind of situation, the Cartesian coordinate system must be fixed to some body. We clearly have many different Cartesian coordinate systems.
+
+\heb Yes. The body can be anywhere, but it can also be oriented in different ways. So for a particular moment in time the Cartesian coordinate system is unique up to its origin and orientation. space is homogeneous and so on
+
+\heb If we have two coordinate systems in different locations but which are oriented in the same way, the transformation between the different coordinate systems is esy: we just have to the coordinates of origin of the first system measured in the other. In short, 
+\begin{eqna}
+	\vec{x}^\coa\rightarrow\vec{x}^\coa-\Delta\vec{x}^\coa.
+\end{eqna}
+Then we also have rotations. space is isotropic
+\section{The relativity principle of Galileo}
+\heb We have discussed Cartesian coordinate systems only at a certain specific moment in time. But generally bodies, and therefore also coordinate systems, can move in infinitely many different ways. Therefore there is very, very many different Cartesian coordinate systems.
+
+\hea
+
+\section{Newton's laws}
+
+
+
+
+
+
+
+
+
+
+%\heb If you don't like my notation, you must go to the source code of our lives at \url{http://github.com/konstakurki/workinprogress/} and uncomment the lines xx--xx.
+%
+%\hea Hmm. Maybe I get used to it. But I keep that possibility in mind.
+\end{document}
