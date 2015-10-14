@@ -15,6 +15,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{braket}
 \usepackage[hyphens]{url}
 \usepackage{makeidx}
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,linktocpage=true]{hyperref}
@@ -33,10 +34,10 @@
 \checkandfixthelayout
 
 \makepagestyle{thphp}
-\makeevenhead{thphp}{}{\rightmark}{}
-\makeoddhead{thphp}{}{\rightmark}{}
-\makeoddfoot{thphp}{}{{\thepage}}{}
-\makeevenfoot{thphp}{}{{\thepage}}{}
+\makeevenhead{thphp}{\thepage}{\rightmark}{\thepage}
+\makeoddhead{thphp}{\thepage}{\rightmark}{\thepage}
+\makeoddfoot{thphp}{}{{}}{}
+\makeevenfoot{thphp}{}{{}}{}
 \pagestyle{thphp}
 
 \renewcommand{\cftdot}{}
@@ -159,7 +160,7 @@
 
 \hea You mean there's no person on Earth who understands his own words?
 
-\heb I think understanding is just a feeling. Peace, acceptance. But it may be just a flash in time. In \emph{time}!
+\heb I think understanding is just a feeling. Peace, acceptance. But it may be just a flash in time. In \emph{time!}
 
 \hea For me it is not so easy to accept things like the fact that now it is a different moment than a couple of minutes ago. And now it is again different.
 
@@ -175,7 +176,7 @@
 
 \hea I would really, really want to hear. I want it really badly.
 
-\heb All right. But the answer is gonna be a long, long one. Actually there won't even be any single final answer. That's because I haven't found it. As far as I know no one has. All we can do is just wander around and build some theory. Beautiful, but imperfect theory. Can you accept that kind of imperfectness?
+\heb All right. But our path will be very, very long. And we probably won't even get any final answer. That's because I haven't found it. As far as I know no one has. All we can do is just wander around and build some theory. Beautiful, but imperfect theory. Can you accept that?
 
 \hea Just give me something. I must get somewhere with this question. Please. I've asked from many people and all they say is something really silly like 'time does not exist'. If something makes me that anxious it definitely must be there!
 
@@ -183,11 +184,9 @@
 
 \heb Do you have any background?
 
-\hea Acually I do. I've studied foundations of mechanics at university. I know Newton's laws, the action principle and Hamilton's equations. And I know also some quantum mechanics.
+\hea Acually I do. I've studied foundations of mechanics. I know Newton's laws, the action principle and Hamilton's equations. And I also know some quantum mechanics.
 
-\heb Good! Then we do not have to go through elementary things.
-
-\hea But the 
+\heb Good! Then we can fly over some boring stuff.
 
 \section{Sharpening the question}
 \heb Tell me some important things of your life.
@@ -200,104 +199,108 @@
 
 \heb Excellent! The primitive elements we use in construing our lives are events. How would you order your birth, day you learned to speak and the cutting of your umbilical cord?
 
-\hea I guess I could order them in many ways. Of course there is the one way of ordering them, but probably you don't mean it.
+\hea I guess I could order them in many ways. Of course there is the one way of ordering them, but probably you don't mean that.
 
-\heb Very often the right direction is so simple, obvious and ridiculously simple that you do not even dear to think of it. So go on.
+\heb Very often the right direction is so obvious and ridiculously simple that you do not even dear to think of it. So go on.
 
 \hea Ok. So first I was born and then my umbilical cord were cut. Several years after those things I said my first word. Am I right?
 
-\heb Yes you are! What I mean by `time' is the affair---whatever it were---that creates this order. Or at least I don't know how to describe it more precisely. Do you agree?
+\heb Yes you are! What I mean by `time' is the affair---whatever it is in its deepest---that creates this order. Or at least I don't know how to describe it more precisely. Do you agree?
 
-\hea I guess I do. What about measuring that affair? For example investigating how much time fits in between two events. You mentioned the corner of an iPhone, but there is some pretty complicated technology inside the thing. What if we just looked for a repeating phenomenon, say sunrise or sunset, and counted how many of them lies between the events we are interested in?
+\hea I guess I do. We can measure it easily, right? For example by whatching the corner of a stupid iPhone you mentioned.
 
-\heb That is indeed how each and every clock work. The `time that firs in between the events' is called their time interval. If we count sunsets we get a bigger number than if we counted summers. But what is beautiful that the relation between the frequencies of sunsets and summers never changes! It is always something like 365. If we take any two good clocks, their relative paces remain always the same.
+\heb Yes we can. But there is some pretty complicated technology inside that device. There are also simpler methods.
 
-\hea That definitely makes sense. If your clock has same kind of second today than mine, I naturally assume that same is true also tomorrow. Does this mean that we can set up an absolute number to describe time by using some reference clock and measuring time intervals to some reference event?
+\hea Of course. I think people have investigated how much time there is between two events for generations by counting for example how many sunsets fits in between the events. I guess any repeating phenomenon would do it.
 
-\heb Yes it does. Traditionally we have counted winters compared to the birth of Jesus. Let us call it \(t\), a Galilean time coordinate. But because clocks may run at different paces and be started at different moments, Galilean time is absolute only up to its overal scale and its zero point, the origin of time. In other words, als \(a+b\,t\) is is as good Galilean time coordinate as \(t\) is, if \(a\) and \(b\) are some constant numbers.%It may be said that Galilean time is translation and scale invariant.
+\heb That is indeed how each and every clock work. The `time that firs in between the events' is called time interval of the events and is usually denoted by \(\Delta t\), the big triangle, the Greek capital delta meaning interval and \(t\) time.
 
-\heb However, we usually use the convention that larger values of \(t\) correspond to later events. And you surely can tell future apart of the past, so \(b\) must be a positive real number.
+\heb If we count sunsets we get a bigger number than if we counted for example summers. But what is beautiful is that the relation between the frequencies of sunsets and summers never changes! It is always something like 365. If we take any two good clocks, their relative paces remain always the same.
 
-\hea But wait a second. I watched \emph{Interstellar} a couple of weeks ago. In one scene the tough guy Cooper gives a wrist watch to his daughter Murph and explains that when he returns from his space voyage and they compare their watches, they will find out that the clocks have run at different paces, even though the clocks are identical. Was it crap or what?
+\hea That definitely makes sense. If your clock has same kind of second today than mine, I assume with no though that same is true also tomorrow. Does this mean that the time interval of two events is in some sense an absolute concept?
 
-\heb No it wasn't. Cooper is referring to a concept called proper time, which is different for him and Murph. But Cooper flies in very exotic circumstances. Here, on Earth where we cannot move as fast as Cooper the proper times of us all are pretty much the same. That effectively universal proper time is the Galilean time.
+\heb Up to the time scale fixed by the clock, yes. We can of course convert time intervals read from different clocks to each other by knowing the relative paces of the clocks.
 
-\hea So why did you try to lie to me?
+\heb It is useful to choose some reference time interval, for example day which is the interval of two successive midnights, or the second you mentioned, and express all intervals as multiples of it. Then each and every human being get the same number of days for the same two events.
 
-\heb I'm sorry. But we must begin with everyday phenomenology and proceed from there---starting straight from proper time is way too difficult. But if you are patient enough we will get to it. What is important is that in the regime of our everyday life we \emph{do} have an absolute time.
+\hea So the time interval of two arbitrary events measured in days---or in seconds---is an absolute, observer--independent number. Sounds very reasonable.
 
-\hea Okay, I accept that. Let's keep \(t\).
+\hea But wait a second. I watched \emph{Interstellar} a couple of weeks ago. In one scene the main character Cooper gives a wrist watch to his daughter Murph and explains that when he returns from his space voyage and they compare their watches, they will find out that the clocks are not anymore in sync, even though the clocks are identical. Was it crap or what?
 
-\heb There is something interesting in every phenomenon that occurs. Think about some experiment, say swinging a weight hanging from a wire, being conducted now and a year ago. How would you propose the results of the two experiments differ?
+\heb No it wasn't. Cooper is referring to a concept called proper time. It means the personal time experienced by an observer which in fact is different for Cooper and Murph. But Cooper flies in very exotic circumstances. Here, on Earth where we cannot move as fast as Cooper and the proper times of us all are pretty much the same. That effectively universal proper time is called Galilean time and is the time we have been talking about.
 
-\hea Well, I don't know any reason why would they differ, if the experiment is carried out in the same way.
+\hea So now you tell me that the time interval were not absolute. Why did you try to lie to me?
 
-\heb Exactly. The result of the experiment is totally independent of the time when it is carried out! This holds for any experiment provided that possible variations in crucial environmental conditions are eliminated. Can you believe it?
+\heb In our everyday regime it really is absolute. We do not notice any deviations, and for hundreds of years people really believed in its strick absoluteness. If you are patient, we will get to the relativity. Right now it would probably be too complicated to think of time intervals as subjective, but later we will see that actually the relativistic picture is astonishingly simple and beautiful.
 
-\hea Well, now when you said it, it sounds plausible. Times don't change. Or if they do, it's all about environmental conditions. Your language is interesting; you say it is interesting when nothing changes. I would say it is boring.
+\hea Okay. I accept that.
+\subsection{Space}
+\heb Could we measure intervals of some other physical, perhaps even more concrete, thing than time?
 
-\heb The point is that if the time of conduction truly never matters, or time is homogenic as is often said, we know that if are ever to find some fundamental laws of nature, they cannot depend on time in any way. In other words, the laws must remain unchanged if we change the valua of \(t\). This is called time translation invariance.
+\hea You must mean distances in space.
 
-\hea So nature possess a time translation symmetry. Now when I'm thinking of that fact I do see some beauty in it!
+\heb Yes I do. If you were about to measure say the distance between two stones, how would you do that?
 
-\heb Good! You really have some sensibility.
-\section{Space}
-\heb We set up a Galilean time coordinate by choosing a clock and a reference event. Could we do something similar to some other physical thing out there?
+\hea I would take a rope, tie some knots equidistantly on it, tighten it between the stones and count the knots in between.
 
-\hea You must mean space.
+\heb Excellent! I would have taken a meter stick but this is much more elegant. The process is very similar to measuring time; here the rope plays the role of a clock and knot spacing sets up a distance scale.
 
-\heb Yes I do.
+\hea And like time intervals, also spatial distances are absolute up to a distance scale!
 
-\hea But events are not necessarily well located in space. For example sunset happens everywhere on Earth.
+\heb Yes, at least in the regime of everyday phenomena.
 
-\heb That is true. But it is also true that not all events are located in time neither. It takes a minute or so for a sun to set down so actually sunset is not strictly located even in time. Anyway, let's talk about a physical bodies, say stones, which definitely are not located in time but do possess well--defined locations.
+\heb Space is very much like time, but there is a difference: in time you can only imagine to go back and forward; in space you can also go left, right up and down.
 
-\heb We can measure the distances between the stones, their space intervals, by tightening a rope wich has knots tied on it equidistantly between them and counting the nots. The process is very similar to measuring time intervals!
+\hea This sounds a bit stupid to me. I think that in time I cannot move back nor forward; time just passes. In space I can move, but it takes some time. I mean that `moving' means that location changes with time. It is ridiculous to say that time changes with time.
 
-\heb Further, if you and I use same kind of knot spacing, we get the same values for the distances. Like Galilean time, also Galilean space is absolute. 
+\heb Yeah, yeah. That's why I said that you can imagine. It is somewhat sloppy language. But the point is that space is three--dimensional while time has only one dimension.
 
-\hea And we can set up a space coordinate to specify a location by measuring the distance to a reference body! But clearly there are differencies. In time I can think of going forwards and backwards but not left or right. On the other hand, in space I can go even up and down.
+\hea Yes. That's a difference.
+\subsection{Perspectives}
+\heb Let us consider some observers like you and me. Let's assume that the observers do not move and they all use same units of time and distance. How can these observers differ from each other?
 
-\heb You just stated the familiar assumption that we live in a three-dimensional space. To specify a location completely, we need three numbers. Those three numbers could be for example distances to three different reference bodies.
+\hea Well, I think everybody is different. Even if two persons were cloned from the same DNA, they have necessarily faced different things in life and become different kind of persons.
 
-\heb But a particularly convenient way to specify the location is to imagine three flat planes which are all orthogonal to each other and measure the distance to the closest point on each of them. In this way we get three spatial coordinates called Cartesian coordinates. Let me write them on a blackboard.
+\heb Very clever. I wouldn't have known that! But you know that I meant something simpler.
+
+\hea The observers are located at different places.
+
+\heb And their noses may point in different directions. It is interesting to think of how the perspectives of these different observers are related to each other.
+
+\heb We human beings have two eyes and therefore a stereo vision. We can locate things accurately in space by just watching. Say there is a couple of stones around and every observer see them. The question is: how are their points of view, I mean literally the image that gets projected on their verkkokalvo, relate to each other?
+
+\hea Sounds like a complicated question.
+
+\heb Well, the actual transformation of the view may be complicated, but we can say something about them. Let us denote the image on the verkkokalvos of some observer by \(\ket{\Psi}\). This notation is from quantum mechanics; I chose it because it looks so cool. Here it only means the view and nothing quantum mechanical.
+
+\heb If we for example translate the viewer, that is change her location, the view changes. Let us denote the translation by \(\vec{T}\) and write
 \begin{eqna}
-	\vec{x}^\ind{1},\quad\vec{x}^\ind{2},\quad\vec{x}^\ind{3}.
+    \ket{\Psi}\rightarrow\vec{T}\ket{\Psi}.
 \end{eqna}
-It is convenient to write the index in the upstairs. I write them like \(\ind{2}\) instead of \(2\) to tell them apart from exponents.
 
-\hea And because the planes are orthogonal, we can use the Pyhtagorean theorem
+\hea Sounds trivial.
+
+\heb I know. Now we can make another translation \(\primed{\vec{T}}\). In totality we have
 \begin{eqna}
-	\Delta\vec{x}^2=(\Delta\vec{x}^\ind{1})^2+(\Delta\vec{x}^\ind{2})^2+(\Delta\vec{x}^\ind{3})^2.
+    \ket{\Psi}\rightarrow\vec{T}\ket{\Psi}\rightarrow\primed{\vec{T}}\vec{T}\ket{\Psi}.
 \end{eqna}
-to calculate a distance.
+Clearly both translations together form another translation which we may think of as a product \(\primed{\vec{T}}\vec{T}\). We can also think of doing nothing as a special kind of translation and denote it by \(1\).
 
-\hea Even though if we used identical clocks, the time coordinate was unique only up to the origin of time. Here we seem to have a same kind of situation, the Cartesian coordinate system must be fixed to some body. We clearly have many different Cartesian coordinate systems.
+\heb This is to say that mathematically the translations form a group. It is clear that the order of translations does not matter; we have \(\primed{\vec{T}}\vec{T}=\vec{T}\primed{\vec{T}}\) for any two translations. Translations are said to commute.
 
-\heb Yes. The body can be anywhere, but it can also be oriented in different ways. So for a particular moment in time the Cartesian coordinate system is unique up to its origin and orientation. space is homogeneous and so on
-
-\heb If we have two coordinate systems in different locations but which are oriented in the same way, the transformation between the different coordinate systems is esy: we just have to the coordinates of origin of the first system measured in the other. In short, 
+\hea I've heard of groups. If we translate by \(T\) we can always translate back, which I guess we could denote by \(T^{-1}\). It holds that \((\primed{T}T)^{-1}=T^{-1}\primed{T}^{-1}\) because
 \begin{eqna}
-	\vec{x}^\coa\rightarrow\vec{x}^\coa-\Delta\vec{x}^\coa.
+    T^{-1}\primed{T}^{-1}\primed{T}T=T^{-1}1T=1.
 \end{eqna}
-Then we also have rotations. space is isotropic
-\section{The relativity principle of Galileo}
-\heb We have discussed Cartesian coordinate systems only at a certain specific moment in time. But generally bodies, and therefore also coordinate systems, can move in infinitely many different ways. Therefore there is very, very many different Cartesian coordinate systems.
+This is clear because translating and then translating back is doing nothing. I feel stupid when I say that out loud.
 
-\hea
+\heb Good. Things get more interesting when we consider rotations. Rotations also clearly form a group which in three dimensions is known as \(SO(3)\).
 
-\section{Newton's laws}
+\heb The group of rotations is more interesting because it is not commutative. Look: If I take this chair and do two \(\circc/4\) rotations around vertical and horizontal axes, I get different results depending on the order.
 
+\hea I see, but what is \(\circc\)?
 
+\heb It is the circle constant \(\circc\doteq2\pi\). \(\pi\) is used only for historical reasons; \(\circc\) is much more natural as it represens the whole circle. Check \url{tauday.com} for exhaustive discussion. If you don't like this, just go to the sourcecode of our lives and uncomment one line. The source can be found at \url{konstakurki.co/time}.
 
-
-
-
-
-
-
-
-%\heb If you don't like my notation, you must go to the source code of our lives at \url{http://github.com/konstakurki/workinprogress/} and uncomment the lines xx--xx.
-%
-%\hea Hmm. Maybe I get used to it. But I keep that possibility in mind.
+\hea Cool.
 \end{document}
