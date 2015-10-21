@@ -53,8 +53,9 @@
 \renewenvironment{align}{\sdfsfsd}{\sdfsd}
 
 % Derivatives
-\newcommand{\der}[2]{\frac{\dif#1}{\dif#2}}
+\newcommand{\der}[2]{\frac{\dd#1}{\dd#2}}
 \newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\cder}[2]{\frac{D #1}{D #2}}
 
 % Lorentz transformations
 \newcommand{\lort}[2]{\Lambda^{#1}_{\phantom{#1}{#2}}}
@@ -85,6 +86,14 @@
 \newcommand{\paika}{\mathfrak{s}}
 \newcommand{\ind}[1]{\mathfrak{#1}}
 \newcommand{\circc}{\tau}
+\newcommand{\arxivreference}[1]{\url{#1}}
+
+\newcommand{\tensy}[2]{#1^{#2}}
+\newcommand{\tensa}[2]{#1_{#2}}
+\newcommand{\tensay}[3]{#1_{#2}^{\phantom{#2}#3}}
+\newcommand{\tensya}[3]{#1^{#2}_{\phantom{#2}#3}}
+
+
 % UNCOMMENT NEXT LINE FOR TRADITIONAL CIRCLE CONSTANT 2 PI
 %\renewcommand{\circc}{2\pi}
 
@@ -92,16 +101,17 @@
 \definecolor{safi}{RGB}{0,100,100}
 \definecolor{oranssi}{RGB}{255,128,0}
 \newcommand{\coa}{{\color{black}\bullet}}
-\newcommand{\cob}{{\color{oranssi}\blacklozenge}}
-\newcommand{\coc}{{\color{cyan}\blacktriangleright}}
-\newcommand{\cod}{{\color{red}\blacktriangleleft}}
-\newcommand{\coe}{{\color{magenta}\blacktriangle}}
-\newcommand{\cof}{{\color{green}\blacktriangledown}}
-\newcommand{\cog}{{\color{safi}\bigstar}}
-\newcommand{\coh}{{\color{yellow}\blacksquare}}
+\newcommand{\cob}{{\color{oranssi}\bullet}}
+\newcommand{\coc}{{\color{cyan}\bullet}}
+\newcommand{\cod}{{\color{red}\bullet}}
+\newcommand{\coe}{{\color{magenta}\bullet}}
+\newcommand{\cof}{{\color{green}\bullet}}
+\newcommand{\cog}{{\color{safi}\bullet}}
+\newcommand{\coh}{{\color{yellow}\bullet}}
+\newcommand{\coi}{{\color{blue}\bullet}}
 \newcommand{\tyh}{\phantom{\bullet}}
 % UNCOMMENT NEXT LINE FOR TRADITIONAL GREEK INDICES
-%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\newcommand{\tyh}{\phantom{\alpha}}
+%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\renewcommand{\coi}{\xi}\newcommand{\tyh}{\phantom{\alpha}}
 
 % Dialog characters
 
@@ -132,6 +142,7 @@
 \end{titlingpage}
 \chapter{Change log}
 \textsc{June 28, 2015}\, Initial commit to \url{github.com/konstakurki/time}
+\tableofcontents
 \mainmatter
 \chapter{The beginning}
 \hea Excuse me.
@@ -187,8 +198,7 @@
 \hea Acually I do. I've studied foundations of mechanics. I know Newton's laws, the action principle and Hamilton's equations. And I also know some quantum mechanics.
 
 \heb Good! Then we can fly over some boring stuff.
-
-\section{Sharpening the question}
+\subsection{Sharpening the question}
 \heb Tell me some important things of your life.
 
 \hea My family. And friends. Freedom.
@@ -234,7 +244,7 @@
 \heb In our everyday regime it really is absolute. We do not notice any deviations, and for hundreds of years people really believed in its strick absoluteness. If you are patient, we will get to the relativity. Right now it would probably be too complicated to think of time intervals as subjective, but later we will see that actually the relativistic picture is astonishingly simple and beautiful.
 
 \hea Okay. I accept that.
-\subsection{Space}
+\section{Space}
 \heb Could we measure intervals of some other physical, perhaps even more concrete, thing than time?
 
 \hea You must mean distances in space.
@@ -249,14 +259,162 @@
 
 \heb Yes, at least in the regime of everyday phenomena.
 
-\heb Space is very much like time, but there is a difference: in time you can only imagine to go back and forward; in space you can also go left, right up and down.
+\heb Space is very much like time, but there is a difference: in time you can only imagine to go backwards and forward; in space you can also go left, right up and down.
 
 \hea This sounds a bit stupid to me. I think that in time I cannot move back nor forward; time just passes. In space I can move, but it takes some time. I mean that `moving' means that location changes with time. It is ridiculous to say that time changes with time.
 
 \heb Yeah, yeah. That's why I said that you can imagine. It is somewhat sloppy language. But the point is that space is three--dimensional while time has only one dimension.
 
 \hea Yes. That's a difference.
-\subsection{Perspectives}
+\subsection{Properties of space}
+\heb What is the shortest path between to points in space?
+
+\hea If I tighten a rope between the points, it of course settles down to a configuration in which there are as little rope as possible between the points. That's what tightening means. So the path the rope takes is the shortest path between the two points.
+
+\hea And, of course, the path is also the straight path between the points. The straight path is the shortest and \emph{vice versa}.
+
+\heb Excellent. This is one of the elementary properties of our space. The triangle inequality of elementary geometry can be seen as a special case of this fact.
+
+\heb Think of some object moving in space, for example a baseball. Let us follow its trajectory for a little time \(\Delta t\). What can you say about the trajectory?
+
+\hea Well, it is some curve going through space. We can think of it as having a direction pointing to the direction ???
+
+\heb True. But if we now decrease \(\Delta t\) down to almost vanishing time interval \(\dd t\), we get only a small portion of the curve which looks practically straight. Let me denote that small arrow by \(\dd x\).
+
+\heb Such an arrow is called a vector. A vector is characterized by its length and the direction it points to. Our first vector \(\dd x\) can be thought of as being localized at somewhere on the trajectory of the baseball, but right now it is not important.
+
+\hea Now we can divide \(\dd x\) by \(\dd t\) and get another vector
+\begin{eqna}
+    \der{x}{t}\doteq\dot{x},
+\end{eqna}
+the velocity. If we used \(\dd t/2\) instead of \(\dd t\), the particle would have made only half of \(\dd x\). The velocity does not depend on the particular value of \(\dd t\) if it is small enough.
+
+\hea Why the location does not matter?
+
+\heb It is because we can always parallel transport, that is, move the vector while keeping its length and direction unchanged. You can do this for example with the aid of a compass.
+
+\hea Wait a minute. If I go around the magnetic north pole, the needle of the compass turns around. I wouldn't really trust on a compass.
+
+\heb True. But there is also another elegant and physically interesting way of doing the parallel transport.
+
+\heb Take a wheel of a bicycle and put it to spin. You will notice that the spinning makes the it difficult to change the direction of the axis. With fast enough spin and hyva ripustus the wheel can be used to keep track of a direction.
+
+\hea Oh, you are talking about a gyroscope. They're interesting devices.
+
+\heb We can add two vectors by moving, of course by parallel transport, the other arrow starting from the end of the other. The sum is the arrow starting from the beginning of the first vector and ending at the end of the second. Vectors can also be multiplied by numbers. The properties of vector spaces are very intuitive, but if you miss some mathematical details, check for example the methodology book by Riley, Hobson and Bence?.
+\subsection{Tensors}
+\heb We can consider functions of vectors. A very useful class of functions are functions that preserve the algebraic structure of vector space.
+
+\hea You mean addition and scalar multiplication? 
+
+\heb Yes. Such a function is said to be linear. Say we have vectors \(A\) and \(B\) and numbers \(a\) and \(b\). For a linear function \(f\) it holds that
+\begin{eqna}
+    f(aA+bB)=af(A)+bf(B).
+\end{eqna}
+Linear functions are very simple and intuitive, for example zero vector gets always mapped to zero as can be seen from the equation above after choosing \(a=b=0\).
+%visuaalinen oneformin esiitys
+
+\heb That kind of linear functions can also be thought of vectors of another vector space called the dual vector space. The sum of dual vectors \(f\) and \(g\) means that for any vector \(V\) and number \(n\) it holds that
+\begin{eqna}
+    (f+g)(V)=f(V)+g(V)
+\end{eqna}
+and
+\begin{eqna}
+    (nf)(V)=nf(V).
+\end{eqna}
+
+\hea That's pretty reasonable and starightforward.
+
+\heb We can also consider linear maps, or tensors as they are usually called, which take any number of vectors as inputs and are linear in every input vector.
+
+\heb The notation becomes a bit complex if a tensor has many inputs. That is why I think we should adopt a funny but practical notation. If we have for example a tensor \(T\) which takes three vectors and the input vectors are \(A\), \(B\) and \(C\), we could write
+\begin{eqna}
+    T(A,B,)\doteq\tensa{T}{\coa\cob\coc}A^\coa B^\cob C^\coc.
+\end{eqna}
+
+\hea Looks hilarious. What are those colored balls?
+
+\heb They are wireless connectors that plug the vectors to the tensor. People usually prefer greek letters like \(\alpha\) and \(\mu\). If you would like to see letters instead of colors, you must go to the source code of our lives and uncomment one line.
+
+\hea I like color.
+
+\heb Me too! The order of writing of the vectors and the tensor does not matter, the colors keep track of which connector, or index as they are often called, is connected to which. A single vector \(V\) mapped by a dual vector \(f\) can be therefore written as
+\begin{eqna}
+    f_\coa V^\coa=V^\coa f_\coa.
+\end{eqna}
+This suggests that we can think of \(V^\coa\) as a tensor which takes the dual vector \(f_\coa\) as its input! It does not really matter how we choose to think of it; we just connect an upper index to a lower and that's it.
+
+\hea So we could have tensors with lower and upper indices, for example \(\tensya{K}{\coa\cob\coc}{\cod\coe\cof}\), taking vectors and dual vectors as inputs?
+
+\heb Yes, we very well could. And as you probably guess, we can write any number of tensors in a row and then connect, or contract as it is often said, any lower index with any upper one.
+
+\hea Actually it is useful to firs think of forming an outer product, for example
+\begin{eqna}
+    \tensya{(KT)}{\coa\cob\coc}{\cod\coe\cof\cog\coh\coi}=\tensya{K}{\coa\cob\coc}{\cod\coe\cof}\tensa{T}{\cog\coh\coi}.
+\end{eqna}
+It is a tensor which takes vectors and dual vectors just as you would guess from the indices. It is easy to verify that it is linear in every index. Then we contract any upper index--lower index pairs we want. We can for example contract all three pairs of the above outer product and get
+\begin{eqna}
+    \tensya{(KT)}{\coa\cob\coc}{\cod\coe\cof\coa\cob\coc}\doteq\tensa{(KT)}{\cod\coe\cof}
+\end{eqna}
+which is a tensor with three lower indices.
+
+\hea How elegant is that! I just take some tensors, form an outer prodct of them by writing them in a row in whichever order I want, and then contract the indices I want. Every contraction removes one upper and one lower index. If there are equal numbers of upper and lower indices and I contract them all, I am left with a number.
+
+\heb It is just that simple. Vectors are just tensors with one upper index and dual vectors tensors with one lower index. A number can be thought of as a tensor with no indices at all.
+
+\hea This is very, very cool. I think I'm gonna read something about vector spaces and tensors.
+\subsection{Inner product}
+\hea I read that a vector space is often equipped with an inner product. An inner product of two vectors is linear and symmetric in both of the vectors. If it is a linear map which takes two vectors, say \(V\) and \(W\), I think we can write it as
+\begin{eqna}
+    V\cdot W\doteq g_{\coa\cob}V^\coa W^\cob
+\end{eqna}
+with \(g_{\coa\cob}\) a tensor.
+
+\heb Great! Because the inner product is symmetric, we have \(g_{\coa\cob}=g_{\cob\coa}\). This may seem a bit sloppy, but it means that
+\begin{eqna}
+    V\cdot W\doteq g_{\coa\cob}V^\coa W^\cob=V\cdot W\doteq g_{\cob\coa}V^\coa W^\cob
+\end{eqna}
+for any \(V^\coa\) and \(W^\cob\).
+
+\heb Inner product describes the overlap of two vectors. If consider the overlap of a vector, for example a separation \(\dd x\), with itself, we get a number wich is proportional to the square of the length of \(\dd x\).
+
+\hea So what you are trying to say is that we choose \(g_{\coa\cob}\) so that
+\begin{eqna}
+    |\dd x|^2=g_{\coa\cob}\dd x^\coa\dd x^\cob
+\end{eqna}
+exactly?
+
+\heb Yes. The tensor \(g\) is called the metric tensor of space, since it measures the distance separated by \(\dd x\). For \(\dd x\) one usually writes \(|\dd x|^2\doteq\dd s^2\) and for any other vector \(V\) that \(|V|^2\doteq V^2\). It is a bit inelegant to have different conventions for different vectors but this notation is standard and widespread.
+
+\heb Now we can calculate the length of any path or curve in space by
+\begin{eqna}
+    s=\int\dd s=\int\sqrt{g_{\coa\cob}\dd x^\coa\dd x^\cob}.
+\end{eqna}
+We can also parametrize the path for example by the elapsed time \(t\) when a body moves through the path. Then we have
+\begin{eqna}
+    s=\int\sqrt{g_{\coa\cob}\der{x^\coa}{t}\der{x^\cob}{t}}\,\dd t=\int\sqrt{g_{\coa\cob}\dot{x}^\coa\dot{x}^\cob}\,\dd t.
+\end{eqna}
+\subsection{Differentiating tensors}
+\heb Vectors can be added together and multiplied by numbers, so we can differentiate a vector \(V\) that depends for example on \(t\) easily:
+\begin{eqna}
+    \dot{V}=\frac{V(t+\dd t)-V(t)}{\dd t}=\der{V}{t}.
+\end{eqna}
+The variable \(t\) do not need to mean time; it can also mean for example the position on some curve in space, if there is a vector on every point on the curve. See, here it is useful to talk about vectors localized somewhere.
+
+\heb We can do the same for any tensor. Like for almost any product, the Leibnitz rule holds also for outer products of tensors. For example
+\begin{eqnb}
+    \der{}{t}(V\cdot W)&=&\der{}{t}\left(g_{\coa\cob}V^\coa W^\cob\right)\\
+                       &=&\dot{g}_{\coa\cob}V^\coa W^\cob+g_{\coa\cob}\dot{V}^\coa W^\cob+g_{\coa\cob} V^\coa\dot{W}^\cob.
+\end{eqnb}
+If \(V\) and \(W\) are any unchanging vectors, also their inner product must remain unchanged. Therefore \(\dot{g}\equiv0\). The metric tensor is constant---a highly plausible result.
+
+    
+
+
+
+
+
+\section{Perspectives}
 \heb Let us consider some observers like you and me. Let's assume that the observers do not move and they all use same units of time and distance. How can these observers differ from each other?
 
 \hea Well, I think everybody is different. Even if two persons were cloned from the same DNA, they have necessarily faced different things in life and become different kind of persons.
@@ -303,4 +461,177 @@ This is clear because translating and then translating back is doing nothing. I 
 \heb It is the circle constant \(\circc\doteq2\pi\). \(\pi\) is used only for historical reasons; \(\circc\) is much more natural as it represens the whole circle. Check \url{tauday.com} for exhaustive discussion. If you don't like this, just go to the sourcecode of our lives and uncomment one line. The source can be found at \url{konstakurki.co/time}.
 
 \hea Cool.
+\chapter{Curvature}
+\heb If we take two parallel staight lines in space and extend them, do they remain parallel?
+
+\hea Of course.
+
+\heb How do you know that?
+
+\hea Well, hmm, it seems obvious, doesn't it? I can't see how else could it be. Every straight lines that I've seen too be parallel at some point have always been parallel also everywhere else.
+
+\heb OK, so you understand that it is an empirical observation. And then you of course also understand that it is not necessarily perfectly true, since we have really seen \emph{very} long straight parallel lines. Our picture of our space may be a bit too ideal
+
+\hea Well, in principle yes, but this sounds like nitpicking to me. You said that usually the most simple guess is true, so I propose that parallel lines continue to be parallell since I think it is simpler than `parallel lines may stop being parallel'.
+
+\heb That's surely what I did say. But what really is simple does not necessarily loook like that at first sight. This way or that, I really do have a point.
+
+\heb Look at this karttapallo. Take two straight routes from the equator to the north pole. In the beginning they are parallel but they cross at the north pole and are definitely not parallel there.
+
+\hea Ha ha. This really is stupid. The routes are of course really not straight; a straight route would go away from the surface of Earth to space. Earth is a ball in our three--dimensional space.
+
+\heb Are you absolutely sure about that? Maybe we assume it is so because we have noticed that parallel lines do no continue as parallel and in reality our space is more peculiar that we assume.
+
+\hea I think we can safely assume that light goes truly straight, and we know that a ship sailing away will eventually sink under the horizon. Earth really is a ball.
+
+\heb Well, that is solid I must admit. Earth is a ball. But let me ask you another question. If we take an arrow, parallel transport it, that is transport it without changing the direction it points to, and parallel transport it back, does it end up pointing in the same direction to which it pointed in the beginning?
+
+\hea I could of course ask how you know that the direction does not change, but I guess a gyroscope can be used to handle that issue. If we transport a gyroscope, hell yeah it will come back pointing at the original direction.
+
+\heb Again, look at this model of Earth. Take an arrow and start from the equator, and go up to the north pole. Then go straigh right as long as the arrow is back on the equator. Then go back to the starting point along the equator. The arrow has turned one quarter of a full turn \(\circc\)!
+
+\hea That's an interesting remark. But if you had really parallel transported the arrow, it would have pointed straight away from Earth at the north pole. You are again fooled by the fact that Earth is a ball.
+
+\heb Yes I am. But now I tell you something that's gonna make you shit in your pants.
+
+\heb Gyroscopes have actually been carried on satellites around Earth, and the results show that their directions \emph{do} change.
+
+\hea What?
+
+\heb Yes they do. If you don't believe, check the study of this and that. It can be found at arXiv under the number \arxivreference{1234.5678}.
+
+\hea Don't worry, I believe you. But how is that possible?
+
+\heb Well, that is something that will make us wonder a lot. But we may think that our space is actually intrinsically curved like the surface of Earth is.
+
+\hea Is our space actually floating in some higher dimensional space?
+
+\heb Maybe yes, maybe not. But it is actually not relevant for us, like the fact that Earth is embedded in a three--dimensional space is not relevant for a cartoghaper who just wants to draw useful two--dimensional pictures of land, seas and infrastructure built by human beings.
+
+\heb We therefore are better to get used to curved spaces, or manifolds as they are often called in mathematics.
+\section{Riemannian manifolds}
+\heb In mathematics a Riemannian manifold is a smooth space in which every curve has some length associated with it. Smooth means that the space is essentially flat if we look only small portions of it.
+
+\heb For example the surface of Earth is a two--dimensional Riemannian manifold. It is smooth; if we take a small piece of this karttapallo it definitely is flat like a piece of paper. We can measure thee length of a curve for example by walking along it and counting the steps.
+
+\heb But for example a cone is not smooth because the kärki is sharp no matter how close we look and thus is is not a Riemannian mmanifold.
+
+\hea Seems like an intuitive concept. I guess our space is a three--dimensional Riemannian manifold?
+
+\heb The truth is actually even more facinating, but right now we regard it as such. In any case manifolds will be vital for us if we want to understand time.
+\subsection{Parallel transport}
+\subsection{Vectors}
+\heb Think of two points on a manifold so close to each other that the manifold is essentially flat on the scale of their separation. We can draw an arrow from the first to second. Let me denote the arrow, which is naturally called the separation of the two points, by \(\dd x\).
+
+\heb Now if there are other two points near the first ones, with a separation \(\dd y\), we can naturally add them by parallel transporting the other to start from the end of the other. We get another vector. Because the manifold is essentially flat in the region containing the vectors there is no ambiguity in carrying out the parallel transport.
+
+\hea You're addoing vectors!
+
+\heb Yes I am!
+
+\hea We could also multiply \(\dd x\) by a number \(a\) producing a separation of two points along the same line as the originals but \(a\) times further apart of each other. And so on, yes, I know about vectors.
+
+\heb The separation \(\dd x\) is naturally a vecor, but we can also have other vectors. For example if we have a particle moving in a manifold, we can consider its location at two different times separated by a small time interval \(\dd t\). If the particle does not move unreasonably fast, the locations at \(t\) and \(t+\dd t\) are close together. Dividing this separation \(\dd x\) by \(\dd t\) we get another arrow
+\begin{eqna}
+    \der{x}{t}\doteq u,
+\end{eqna}
+the velocity, which is also clearly a vector.
+
+\hea But now \(\dd t\) is very short and so \(u\) might stretch so far that the space cannot anymore be considered as flat?
+
+\heb Well, for general vectors we imagine the small essentially flat region to extend to infinity as perfectly flat. Imagine gluing a flat piece of paper on the karttapallo. In mathematics this flat piece is called a tangent space. If you are interested in mathematical details, consider for example the excellent book \emph{Geometry, Topology and Physics} by Mikio Nakahara.
+
+\hea Ok, I'll check it. Now, if I'm correct, each point have its own tangent space. We must think of a vector to actually be located to somewhere in the manifold, and only vectors located at the same point, and belonging to the same tangent space, can be added, ultimately because it is not clear how to move vectors over long distances.
+
+\heb Exactly, exactly. Now think of the inner product \(A\cdot B\) of two vectors \(A\) and \(B\).
+
+\hea It measures how much \(A\) and \(B\) overlap. It is symmetric, \(A\cdot B=B\cdot A\), and linear in its both arguments. If \(A\) and \(B\) are perpendicular to each other, we have \(A\cdot B=0\).
+
+\heb Yes. Now it is interesting to take the inner product of \(\dd x\) with itself. We can also do the same for \(a\dd x\), which is \(a\) times longer separation. We get
+\begin{eqna}
+    (a\dd x)\cdot(a\dd x)=a^2\,\dd x\cdot\dd x
+\end{eqna}
+because the inner product is linear in both of its arguments.
+
+\hea I'm getting this! An inner product can be used to measure the distance of closely separated points.
+
+\heb Yes. We can equip tangent spaces with any inner product we want. In Riemannian geometry the inner product is chosen so that
+\begin{eqna}
+    \dd s^2=\dd x\cdot\dd x
+\end{eqna}
+where \(\dd s\) is the distance of two points separated by \(\dd x\).
+
+\heb The inner product is a bilinear map which takes two vectors and produces a number. It is useful to consider linear maps from any number of vectors to real number. Such objects are called tensors.
+
+\heb The Riemannian inner product is usually denoted by \(g\). It is called the metric tensor, because it is used to measure distance. In mathematics literature one usually writes \(A\cdot B\doteq g(A,B)\), but this kind of notation gets complicated if we have tensors with more `inputs' for vectors. I like to write it as
+\begin{eqna}
+    A\cdot B\doteq g_{\coa\cob}A^\coa B^\cob.
+\end{eqna}
+Because the inner product is symmetric in its both arguments, we have \(g_{\coa\cob}=g_{\cob\coa}\).
+
+\hea What are those colored balls?
+
+\heb They are wireless connectors that connect the vectors to the inputs of the multilinear map \(g\). The position of the ball determines the input used and color determines to which it is connected.
+
+\hea We can also think of a tensor \(T\) which take only one vector \(V\) and produces a number. That would be written as \(T_\coa V^\coa\). Tensors like \(T\) are called dual vectors.
+
+\heb We can also think of the vector \(V\) as a linear map which takes \(T\) as its input. It really doesn't matter. That is why \(T\) is called a dual vector.
+
+\heb We can also think of first taking an outer product \(T_\coa V^\cob\) and then connecting \(_\coa\) to \(^\cob\). It is easy to verify that the outer product is actually a bilinear map which which takes one vector and one dual vector as its inputs.
+
+\hea I see. We can take tensors with any number of balls upstairs and downstairs, for example \(\tensay{F}{\coa}{\cob}\) and \(\tensya{K}{\coc}{\cod}\). Then we can form the outer product \(\tensay{F}{\coa}{\cob}\tensya{K}{\coc}{\cod}\), which takes inputs exactly as you would expect from the balls.
+
+\heb Yes.
+
+\hea Then we can connect balls, for example \(\tensay{F}{\coa}{\cob}\tensya{K}{\coc}{\coa}\).
+
+\heb Connecting the balls is often called contracting. Mathematically it means taking a trace. An upper ball must always be contracted with a lower one and vice versa.
+
+\hea And the contracted indices are not anymore inputs! A contraction takes one input and one output off a tensor.
+
+\heb finally, when there are no iputs and out puts left, we have just a number. How simple is that?
+
+\hea Very simple and elegant.
+
+\heb In this notation we have
+\begin{eqna}
+    \dd s^2=g_{\coa\cob}\dd x^\coa\dd x^\cob.
+\end{eqna}
+\subsection{Length of a curve}
+Now, think of a curve \(x(t)\) on a manifold. We can calculate its length \(s\) by thinking it consisting of very many small segments. We have
+\begin{eqna}
+    s=\int\dd s=\int\sqrt{g_{\coa\cob}\dd x^\coa\dd x^\cob}.
+\end{eqna}
+\section{Differentiation}
+\hea Could we differentiate things?
+
+\heb If we have a scalar function \(\phi(x)\)on a manifold, that is, we attach a number to each point in the manifold, it is easy to compare neighboring values: just take the difference \(\dd\phi\). If we have a curve \(x(t)\), we can easily calculate the derivative of \(\phi\) with respect to \(t\); it is just \(\dd\phi/\dd t\).
+
+\heb But differentiating a vector field is more difficult because we have to compare vectors belonging to different tangent spaces. How could we do it?
+
+\hea Well, the only natural way of doing it that comes to my mind is of parallel transporting one of the vectors near the other and then doing the comparison.
+\section{Differentiation}
+\heb If we have tensors defined on a curve or perhaps everywhere on the manifold, it would be nice to be able to differentiate them. But there is a problem: we have to compare neighboring vectors that belong to different tangent spaces. How could we do it?
+
+\hea Well, if we compare vectors the only thing that comes to my mind is of parallel transporting one of the vectors near the other and then doing the comparison. But I don't know what to do to other kinds of tensors.
+
+\heb Damn you're clever. The difference of a vector field \(A(x)\) gotten that way is usually denoted by \(DA\). The capital d is used to emphasize that it is not a simple subtraction of two numbers. Now, if we have a curve \(x(t)\), we can defferentiate \(A\) along it by forming the simple fraction
+\begin{eqna}
+    \frac{DA}{\dd t}\doteq\cder{A}{t}.
+\end{eqna}
+It is also a vector. We usually write \(D\) instead of \(\dd\) also before \(t\) because mixing two different d's looks stupid.
+
+\hea But what about other tensors?
+
+\heb Oh yes. Actually they can also be naturally parallel transported, meaning that if the original tensor gives some number out of some arbitrary vectors, the parallel transported tensor gives the same number out of the same vectors also parallel transported to the same location.
+
+\hea Like always, the covariant derivative obeys the Leibniz rule.
+
+\
+
+
+
+
+
+
 \end{document}
