@@ -67,6 +67,7 @@
 \newcommand{\puoli}{\frac{1}{2}}
 \newcommand{\yksi}{\mathfrak{1}}
 \newcommand{\andd}{\qquad\textrm{and}\qquad}
+\newcommand{\orr}{\qquad\textrm{or}\qquad}
 \newcommand{\wheree}{\qquad\textrm{where}\qquad}
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\dvec}[1]{\dot{\vec{#1}}}
@@ -266,7 +267,7 @@
 \heb Yeah, yeah. That's why I said that you can imagine. It is somewhat sloppy language. But the point is that space is three--dimensional while time has only one dimension.
 
 \hea Yes. That's a difference.
-\subsection{Properties of space}
+\subsection{Some properties}
 \heb What is the shortest path between to points in space?
 
 \hea If I tighten a rope between the points, it of course settles down to a configuration in which there are as little rope as possible between the points. That's what tightening means. So the path the rope takes is the shortest path between the two points.
@@ -385,7 +386,29 @@ for any \(V^\coa\) and \(W^\cob\).
 exactly?
 
 \heb Yes. The tensor \(g\) is called the metric tensor of space, since it measures the distance separated by \(\dd x\). For \(\dd x\) one usually writes \(|\dd x|^2\doteq\dd s^2\) and for any other vector \(V\) that \(|V|^2\doteq V^2\). It is a bit inelegant to have different conventions for different vectors but this notation is standard and widespread.
+\subsection{Rising and lowering}
+\heb The metric is so important that for each vector \(V^\coa\) we define a dual vector \(g_{\coa\cob}V_\cob\doteq V_\coa\). That is, we really do not bother to think vectors and dual vectors as different kinds of things; we only have vectors which can be written the index in the upstairs or the downstairs.
 
+\heb We can actually lower any upper index of any tensor in the same way, for example \(g_{\coa\cob}T^{\cob\coc}\doteq\tensay{T}{\coa}{\coc}\).
+
+\hea You said that we don't bother to fundamentally distinguish vectors and dual vectors. So we can raise an index back up as easily as we lowered it?
+
+\heb Yes we can. For this purpose we define an inverse metric \(g^{\coa\cob}\) by
+\begin{eqna}
+    g^{\coa\cob}g_{\cob\coc}=1^{\coa}_{\coc},
+\end{eqna}
+in which \(1\) is the unit tensor which does nothing. We could also think of \(1\) as the metric \(g\) with the other index rised. So first lowering and then raising is doing nothing as it should be. And the same holds of course for first rising and then lowering.
+
+\hea So the picture simplifies even more. We write tensors with indices placed where ever it is practical and contract. The metric never needs to be written explicitly. Damn this is elegant.
+
+\heb Yeh, however, of course we may sometimes want to write it visible, for example when I write
+\begin{eqna}
+    \dd s^2=g_{\coa\cob}\dd x^\coa\dd x^\cob
+\end{eqna}
+I want to emphasize that the metric defines the distance of two nearby points.
+
+\heb Also remember that rising and lowering, and therefore cavalry? about the true position of an index, were made possible by the existence of the metric. In some other situations there may not be such a distinguished metric and then we may really need to distinguish vectors and dual vectors. This is pretty abstract, but will be highly useful for us in the future.
+\subsection{Length of a curve}
 \heb Now we can calculate the length of any path or curve in space by
 \begin{eqna}
     s=\int\dd s=\int\sqrt{g_{\coa\cob}\dd x^\coa\dd x^\cob}.
@@ -395,11 +418,11 @@ We can also parametrize the path for example by the elapsed time \(t\) when a bo
     s=\int\sqrt{g_{\coa\cob}\der{x^\coa}{t}\der{x^\cob}{t}}\,\dd t=\int\sqrt{g_{\coa\cob}\dot{x}^\coa\dot{x}^\cob}\,\dd t.
 \end{eqna}
 \subsection{Differentiating tensors}
-\heb Vectors can be added together and multiplied by numbers, so we can differentiate a vector \(V\) that depends for example on \(t\) easily:
+\heb Vectors can be added together and multiplied by numbers, so we can differentiate a vector \(V\) that depends for example on \(t\) easily,
 \begin{eqna}
-    \dot{V}=\frac{V(t+\dd t)-V(t)}{\dd t}=\der{V}{t}.
+    \dot{V}=\frac{V(t+\dd t)-V(t)}{\dd t}=\der{V}{t},
 \end{eqna}
-The variable \(t\) do not need to mean time; it can also mean for example the position on some curve in space, if there is a vector on every point on the curve. See, here it is useful to talk about vectors localized somewhere.
+and the result is another vector. The variable \(t\) do not need to mean time; it can also mean for example the position on some curve in space, if there is a vector on every point on the curve. See, here it is useful to talk about vectors localized somewhere.
 
 \heb We can do the same for any tensor. Like for almost any product, the Leibnitz rule holds also for outer products of tensors. For example
 \begin{eqnb}
@@ -408,13 +431,301 @@ The variable \(t\) do not need to mean time; it can also mean for example the po
 \end{eqnb}
 If \(V\) and \(W\) are any unchanging vectors, also their inner product must remain unchanged. Therefore \(\dot{g}\equiv0\). The metric tensor is constant---a highly plausible result.
 
-    
-
-
-
-
-
+\heb Because the metric is constant, it holds that
+\begin{eqna}
+    \der{}{t}g_{\coa\cob}V^\cob=g_{\coa\cob}\dot{V}^\cob,
+\end{eqna}
+that is, the contraction of a derivative is the derivative of a contraction. This makes thing even more easy: we can just think of the derivative of a vector---or any other tensor---indices placed anywhere we want.
 \section{Perspectives}
+\heb Things don't look the same from the perspectives of different persons, right?
+
+\hea Definitely not. A capitalist feels envy for a poor guy getting an unemployment compensation. The capitalist thinks that the poor guy hasn't done anything to earn it. On the other hand the poor guy thinks that the capitalist is acting selfishly since he has so much money that he could save many from starvation but is not willing to do that.
+
+\heb Yeah, that's so very absurd. Even though we have all the technology to give everyone a good life and make hating old--fashioned, we're not willing to pursue that opportunity.
+
+\heb But there are also another kinds of differences of perspectives that are more relevant for as here.
+
+\hea I know, I just wanted to make an important remark. The motion of a rollercoaster looks different when observed from different locations.
+
+\heb Also the look changes if the observer turns his eyes and looks to different locations. But we understand space as a somewhat objective thing and can think of things like locations and vectors without choosing any particular observer postioned and orientated in a particular way, right?
+
+\hea Yeah.
+
+\heb But there is an affair that matters.
+
+\hea What is it?
+
+\heb Motion. The differences in the motions of observers cannot be dealt so easily as the differences in positions and orientations.
+
+\hea Why is that? We just have to take into account that locations change due time. If I have two points and their separation \(\dd x\), a moving observer sees both points moving and understans that the separation \(\dd x\) does not change at all. Both observers can understand it as the same separation vector. I would like to that think vectors and tensor are the same even though people may move.
+
+\heb Well, for the separation vector of two fixed points, it really is so. Also the metric, which represents the overlap of two vectors can be seen as the same, because the overlap of two vectors must remain unchanged if the vectors itself remain unchanged.
+
+\heb But think about the velocity of a particle. One observer sees its position changing by \(\dd x\) in a time interval \(\dd t\). But another observer, moving with respect to the first, sees a separation \(\dd\primed{x}=\dd x+\dd o\) in which \(\dd o\) is the motion of the first observer from the perspective of the firs. For the velocity vectors \(\dot{x}\) and \(\dot{\primed{x}}\) it holds that
+\begin{eqna}
+    \dot{\primed{x}}=\der{\primed{x}}{t}=\der{x+\dd o}{t}=\dot{x}+\dot{o}.
+\end{eqna}
+We cannot think of the velocity vector objectively, unless we assume that there is some natural state of `resting'.
+
+\hea Do we?
+
+\heb Aristotle? and co. assumed that natural resting is not moving with respect to Earth.
+
+\heb But think about some simple phenomena, for example a swinging pendulum. Does the swinging care about motion?
+
+\hea Well, if I put the pendulum on top of a car the air probably disturbs it, but yeah, I get the point. Inside the car it swings just like inside a house standing firmly on rock, at least if the ride is not so bumpy.
+
+\heb Correct. If we eliminate disturbances like wind, the pendulum siwings the same way always when the lab is moving with a constant velocity. A house, a uniformly moving car, an elevator are all equally good labs.
+
+\heb The idea that there is a natural equality of observers that move uniformly with respect to each other is called the principle of relativity. It seems to be very generally true.
+
+\heb However, accelerating observers, I mean those that are moving nonuniformly with each other, are not equal. Pendulum swings differently in carousel and in a car driven by a mad man.
+
+\hea Interesting. And sensible.
+
+\heb If two observers move uniformly, with a constant velocity \(\dot{o}\) with respeect to each other, we have \(\dot{\primed{x}}=\dot{x}+\dot{o}\) as we noted. But for the acceleration \(\ddot{x}\) it holds that
+\begin{eqna}
+    \ddot{\primed{x}}=\der{}{t}\dot{\primed{x}}=\der{}{t}(\dot{x}+\dot{o})=\ddot{x}
+\end{eqna}
+since \(\ddot{o}\equiv 0\). The principle of relativity could be stated as `Acceleration is absolute, velocity is not.' The principle of relativity could be formulated by saying that \emph{acceleration is absolute and objective, velocity is not.}
+\subsection{Newton's first law}
+\heb Now we are ready to formulate an equation describing a law of nature.
+
+\hea Cool!
+
+\heb Consider a body, for example a rock, isolated as well as we can from the rest of the world. For simplicity let us neglect the possible rotation of the rock, that is, we think of it as being a point particle.
+
+\hea Well, I think we need to eliminate the resistance of air. But rocks are quite heavy objects compared to their size, so the air resistance really does not matter. Another thing we should eliminate is gravity. But I don't know how we could do that. do you?
+
+\heb Yes and no! You asked a question that will take us very far. Really. But let us not go there yet. If we cannot eliminate gravity, the stone makes an arc. But if the stone moves really fast and we consider only a very small time scale, then gravity does not really have time to have any effect and we may neglect it. Or, we may imagine soomehow compensating the gravitational force with some other force. Or maybe we could just remove gravity somehow.
+
+\hea Okay, let us assume there is no gravity. The the stone would probably go just straight.
+
+\heb Yes it would. According to the principle of relativity, the equation describing the motion of the stone, or any free particle, cannot involve the velocity directly. If we have neglected the effect of the environment, even gravity, then the law describing the stone cannot involve the location of the particle directly and must be independent of the direction where the stone is going. These notions are usually called the homogenity and isotropy of space.
+
+\heb So, write on the blackboard the simplest law, consistent with these requirements, that you can ever imagine!
+
+\heb Come on, be brave.
+
+\hea Hmm.
+\begin{eqna}
+    \ddot{x}=0
+\end{eqna}
+
+\heb \emph{Voil\`a!} You just invented Newton's first law: free particles move straight, with unchanging velocity.
+
+\hea There is also another equations consistent with our requirements, for example \(\dddot{x}=0\). But that would mean that the particle did somehow remember its acceleration. It would also mean that even acceleration were not absolute, only the change of acceleration, or jerk. But our experience tells us that acceleration is absolute. Newton's first law is in great agreement with experiments.
+
+\hea How could it be that the simplest answer tend to be the correct one? I mean, I do really feel that `If I know nothing obout it, what else would I guess', but it still feels a bit, or not even just a bit, muddy.
+
+\heb Say no more. In philosophy its called \emph{Occam's razor} and in some areas of physics \emph{the minimal substitution principle}. I think it is just an integral part of common sense. Impossible to prove or argue for, but also impossible to live without.
+
+\heb It is somewhat similar issue with the issue of probability theory. Why do you expect that out of very many throws of dice about one sixth are sixes?
+
+\hea I have no idea. Or I would say that because of summetry. But I cannot say why symmetry of the dice implies symmetry of the probabilities.
+
+\heb Exactly. It just feel obvious. Even the rigorous mathematical theory of probabilities and measures and stochastics just lean on that asumption.
+
+\hea But it is a very good assumption. What is the chances that it is wrong?
+
+\hea Wait. What did I just say? Probabilities seem to be as enigmatic as time.
+
+\heb Yeah they does. But if we want to focus on time, let's move on. Maybe we can come back to probabilities at some point?.
+
+\hea Yeah, let's do that.
+\section{Force and Lagrangians}
+\heb If you had to affect the motion of the stone somehow, what would you do?
+
+\hea I could for example push it.
+
+\heb Yeah. You could generate force with your muscles and direct it with your limbs. Let us denote the force you excert on the stone by \(F\). It is pretty obvious that force is a vector: it has a direction and a magnitude. If the stone is otherwise free, how does it react to the force?
+
+\hea If Newton's first law says that the velocity of the free particle remains constant, maybe a force changes it.
+
+\heb Yes, yes, yes! Here it comes again, Occam's razor or just plain common sense, and writes
+\begin{eqna}
+    F=\ddot{x}.
+\end{eqna}
+Is this good? At least it reduces to the first law if \(F=0\).
+
+\hea Different stones, for example a small and a big one, react differently to a force.
+
+\heb Right, so let us add a constant \(m\), called mass, which quantifies that and write
+\begin{eqna}
+    F=m\ddot{x}.
+\end{eqna}
+This equation is called Newton's second law. The greater the mass of the particle, the more resistant it is for the changes in its motion.
+
+\hea That seems reasonable. But what about \(F\), is it clear that it is absolute in the sense that the acceleration is but the velocity is not?
+
+\heb No. But it is also not perfectly clear how to attach an arrow describing the force that comes out of your muscles. At least it is not as easy as drawing an arrow between two fixed points in space.
+
+\hea Here we need to decide how to define things. We need to guess what would be a reasonable definition, and here it is not perfectly clear. Let us assume that the force \emph{is} absolute in the sense in which the acceleration is, and let us use the second law as a definition of force.
+
+\hea Could different definitions lead to different physical results?
+
+\heb Yes they could. That is because the force is something concrete, something that you relly produce with your body. Newton's secobnd law really says that the mass is the only way in which bodies reactions to force differ.
+
+\heb We could for example let the mass depend on the acceleration. And that dependence could be different for different particles. We just guess the Newton's second.
+
+\hea I'm not perfectly comfortable with this reasoning.
+
+\heb I understand you, but the situation could be so much worse! Think about some theories of psychology.
+
+\hea Are you dissing psychology?
+
+\heb No, I'm just pointing out how lucky we are. Our task is so much easier.
+
+\heb And I can tell you that Newton's second law is pretty good a guess---it is valid at very large range of phenomena.
+\subsection{Kinetic energy}
+\heb In physics there is a concept called work, denoted by \(W\). What does work bring into your mind?
+
+\hea Thinking. Pain, tiredness, but also satisfaction. But yeah, that is probably not relevant. I also recognize the old--fashionend `blood, sweat and tears' stylee work, for example lifting sldfjsdlf .
+
+\heb That old--fashioned work is physical work. If you for example raahaa a sfss, the work done is proportional to the distance the fdfd moves and to the force needed for raahing. So, at least if the particle moves in the same direction than the force points, we can define \(\dd W=F\cdot\dd x=F_\coa\dd x^\coa\).
+
+\hea If the particle moves perpendicularly to the force, then I don't really do work; I just maintain the force. For example if I stand besides a railroad and push with a scateboard a train that passes along, the wheels of the scateboard making sure I don't get disturbed bu the motion of the train, I don't really do nothing. I just push. So your definition seemse reasonable even if the force and motion are not perpendicular to each other.
+
+\heb Yes. Let us adopt that definition in general.
+
+\heb If you push some object with a constant force and it moves with a constant velocity, we have
+\begin{eqna}
+    \dot{W}=\der{}{t}(F\cdot\dd x)=F\cdot\der{x}{t}=F\cdot\dot{x},
+\end{eqna}
+so the greater the velocity, the greater \(\dot{W}\), or power, is needed. This is in accordance with everyday observations: the faster you raahata teh rock, the more you sweat.
+
+\heb Now think of accelerating a particle of mass \(m\) from rest to the velocity \(\dot{x}=v\). The work that we need to do, denoted in this context by \(T\), is
+\begin{eqna}
+    T=\int_0^v\dd W=\int_o^v F\cdot\dd x.
+\end{eqna}
+Newton's second law tells that \(F=m\ddot{x}\), so
+\begin{eqna}
+    T=\int_0^v m\der{\dot{x}}{t}\cdot\dd x=m\int_0^v\dd\dot{x}\cdot\der{x}{t}=m\int_0^v\dot{x}\cdot\dd\dot{x}.
+\end{eqna}
+Leibniz rule tells us that
+\begin{eqna}
+    \dd(\dot{x}^2)=\dd(\dot{x}\cdot\dot{x})=\dd\dot{x}\cdot\dot{x}+\dot{x}\cdot\dd x=2\dot{x}\cdot\dd\dot{x}
+\end{eqna}
+so we have
+\begin{eqna}
+    T=\puoli m\int_0^v\dd(\dot{x}^2)=\puoli m v^2.
+\end{eqna}
+This is called the kinetic energy of the particle. We can also write it as
+\begin{eqna}
+    T=\puoli mg_{\coa\cob}v^\coa v^\cob.
+\end{eqna}
+
+\heb Obviously, if we have many particles the total kinetic energy is just the sum of individual kinetic energies, since we must accelerate each particle independently of the others. Labeling particles with \(i\), we have
+\begin{eqna}
+    T=\puoli\sum_i m_ig_{\coa\cob}v_i^{\coa}v_i^{\cob}
+\end{eqna}
+Now, we can take advantage of the tensor formalism we developed. The above sum is clearly linear in each of the velocities in it. If we have for example three particles, the sum is a linear function of six velocity vectors, that is, a tensor with six lower indices. We can therefore write
+\begin{eqna}
+    T=\puoli m_{\coa\cob\coc\cod\coe\cof}v_1^{\coa}v_1^{\cob}v_2^{\coc}v_2^{\cod}v_3^{\coe}v_3^{\cof}
+\end{eqna}
+where \(m\) is a tensor, mathematically the direct sum of all \(m_i g\)'s?, which takes care of calculating the kinetic energies of all the particles.
+
+\heb And we can go even further! A you can see, we probably want to contract the velocities of all particles or none of them. Therefore denote three balls with just one and write
+\begin{eqna}
+    T=\puoli m_{\coa\cob}\dot{q}^\coa\dot{q}^\cob.
+\end{eqna}
+Here \(\dot{q}\) denotes collectively the velocities of all particles.
+
+\hea Damn this formalism is beautiful.
+\subsection{Configuration space}
+\hea It looks like we have only one particle now. Funny.
+
+\heb We can think that we really have only one particle, the `system particle', instead of the original \(N\) particles. The sysem particle moves in \(3N\)--dimensional so--called configuration space. Position in configuration space is often denoted by \(q\) and the velocity naturally by \(\dot{q}\).
+
+\hea Can we write Newton's second law for the system particle?
+
+\heb Surely we can. For one particle it can be written as
+\begin{eqna}
+    F=m\ddot{x}\orr F_\coa=mg_{\coa\cob}\ddot{x}^\cob.
+\end{eqna}
+For the system particle we should obviously write
+\begin{eqna}
+    F_\coa=m_{\coa\cob}\ddot{q}^\cob,
+\end{eqna}
+or
+\begin{eqna}
+    F=\dot{p}\wheree p_\coa=m_{\coa\cob}\dot{q}^\coa,
+\end{eqna}
+since the tensor \(m\) is constant, at least if the masses of the particles are constants.
+
+\heb If we have only one particle, we have
+\begin{eqna}
+    p_\coa=mg_{\coa\cob}\dot{x}^\cob\orr p=m\dot{x}
+\end{eqna}
+and Newton's second law reads
+\begin{eqna}
+    F=\dot{p}=m\ddot{x}
+\end{eqna}
+as it should be.
+
+\heb The quantity \(p\) is called momentum. It in some sense quantifies the amount of motion in the system: the greater the mass and the greater the velocity, the greater the momentum is. It is proportional to the velocity, and therefore is not an absolute vector like the acceleration is.
+
+\heb In terms of momentum the second law can be read as `Force equals the rate of change of momentum,' that is, force changes the amount of motion.
+
+\hea Sounds very reasonable.
+\subsection{Potential energy}
+\heb We are not the onlyones who are able to produce force and do work. Mutual interactions of particles can often be thought of as arising from forces they excert on each other.
+
+\heb Almost any large body can be thought of consisting of a large number of point particles excerting forces on each other. The forces keep the body in shape, but also may give rise for example for vibrations.
+
+\hea So a complicated body can be represented as a point paricle in a large configuration space!
+
+\heb Yes. The mutual forces of the particles appear an external forces in the configuration space.
+
+\heb The force in the configuration space depend on the state of motion of the system. I could for example depend on \(q\), \(\dot{q}\) and \(\ddot{q}\). However, here we have to restrict to a narrow class of forces, but don't worry, actually the forces we will restrict on are the most interesting forces.
+
+\hea What forces we abandon?
+
+\heb Right now let us abandon forces that depend on the changing of \(q\), that is, we consider forces that only depend on \(q\).
+
+\heb For such a force \(F\) we can calculate how much work must be done to change the configuration from \(q=A\) to \(q=B\). The work \(W\) is
+\begin{eqna}
+    W(A\rightarrow B)=\int_{A}^{B}F\cdot\dd q.
+\end{eqna}
+This may in general depend on the path taken, but if it does not, we can form a function \(V\) of the configuration \(q\) by setting
+\begin{eqna}
+    V(q)=W(A\rightarrow q).
+\end{eqna}
+Now we have%pitaa tsekata merkkejá
+\begin{eqna}
+    F\cdot\dd q=-\dd V=-\partial V\cdot\dd q,
+\end{eqna}
+where \(\partial V\) is the gradient of a \(V\), a vector that points points in the direction in which \(V\) grows most fast, its length of course depending on this rate.
+
+\heb Newton's second law can therefore be written as
+\begin{eqna}
+    \dot{p}+\partial V=0\orr m_{\coa\cob}\ddot{q}^\cob+\partial_\coa V=0.
+\end{eqna}
+Looks simlpe, doesn't it!
+
+\heb Now the kinetic energy can be written in a similar from.ldfcdlf
+\begin{eqna}
+    p_\coa=m_{\coa\cob}\dot{q}^\coa=\puoli\dot{\partial}m_{\coa\cob}\dot{q}^\coa\dot{q}^\cob=\dot{\partial}_\coa T.
+\end{eqna}
+Newton's second law becomes
+\begin{eqna}
+    \der{}{t}\dot{\partial}T+\partial V=0
+\end{eqna}
+or, after defining a new function \(L(q,\dot{q}=T-V\), the Lagranngian of the system,
+\begin{eqna}
+    \der{}{t}\dot{\partial}L-\partial L=0.
+\end{eqna}
+The equation of motion in this form is called the Lagrange's equation of motion.
+
+
+
+
+
+
+
+\newpage
+
+
 \heb Let us consider some observers like you and me. Let's assume that the observers do not move and they all use same units of time and distance. How can these observers differ from each other?
 
 \hea Well, I think everybody is different. Even if two persons were cloned from the same DNA, they have necessarily faced different things in life and become different kind of persons.
@@ -461,6 +772,44 @@ This is clear because translating and then translating back is doing nothing. I 
 \heb It is the circle constant \(\circc\doteq2\pi\). \(\pi\) is used only for historical reasons; \(\circc\) is much more natural as it represens the whole circle. Check \url{tauday.com} for exhaustive discussion. If you don't like this, just go to the sourcecode of our lives and uncomment one line. The source can be found at \url{konstakurki.co/time}.
 
 \hea Cool.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Curvature}
 \heb If we take two parallel staight lines in space and extend them, do they remain parallel?
 
@@ -509,6 +858,36 @@ This is clear because translating and then translating back is doing nothing. I 
 \heb Maybe yes, maybe not. But it is actually not relevant for us, like the fact that Earth is embedded in a three--dimensional space is not relevant for a cartoghaper who just wants to draw useful two--dimensional pictures of land, seas and infrastructure built by human beings.
 
 \heb We therefore are better to get used to curved spaces, or manifolds as they are often called in mathematics.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Riemannian manifolds}
 \heb In mathematics a Riemannian manifold is a smooth space in which every curve has some length associated with it. Smooth means that the space is essentially flat if we look only small portions of it.
 
