@@ -48,7 +48,8 @@
 % Environments
 \newenvironment{eqna}{\begin{IEEEeqnarray*}{c}}{\end{IEEEeqnarray*}\ignorespacesafterend}
 \newenvironment{eqnb}{\begin{IEEEeqnarray*}{rCl}}{\end{IEEEeqnarray*}\ignorespacesafterend}
-%\newcommand{\nimi}[1]{\IEEEyesnumber\label{#1}}
+\newenvironment{narration}{\begin{em}}{\end{em}}
+\newcommand{\nimi}[1]{\IEEEyesnumber\label{#1}}
 \renewenvironment{equation}{\sdfsdfsd}{\sdfsf}
 \renewenvironment{align}{\sdfsfsd}{\sdfsd}
 
@@ -57,22 +58,25 @@
 \newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
 \newcommand{\cder}[2]{\frac{D #1}{D #2}}
 
-% Lorentz transformations
-\newcommand{\lort}[2]{\Lambda^{#1}_{\phantom{#1}{#2}}}
-\newcommand{\lori}[2]{\Lambda_{#1}^{\phantom{#1}{#2}}}
-
-\newcommand{\chris}[3]{\{{_{#1}}{^{#2}}{_{#3}}\}}
-
-% Miscellaneous
+% Symbols
 \newcommand{\puoli}{\frac{1}{2}}
 \newcommand{\yksi}{\mathfrak{1}}
 \newcommand{\andd}{\qquad\textrm{and}\qquad}
 \newcommand{\orr}{\qquad\textrm{or}\qquad}
 \newcommand{\wheree}{\qquad\textrm{where}\qquad}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\circc}{\tau}
+\newcommand{\paika}{\mathfrak{s}}
+
+
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\dvec}[1]{\dot{\vec{#1}}}
 \newcommand{\ddvec}[1]{\ddot{\vec{#1}}}
 \newcommand{\pvec}[1]{\primed{\vec{#1}}}
+
+% Operators
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Det}{Det}
 \DeclareMathOperator{\Tr}{Tr}
@@ -80,23 +84,21 @@
 \DeclareMathOperator{\imaginaariosa}{Im}
 \renewcommand{\Re}{\reaaliosa}
 \renewcommand{\Im}{\imaginaariosa}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\ii}{\mathrm{i}}
-\newcommand{\ee}{\mathrm{e}}
+
 \newcommand{\primed}[1]{\hat{#1}}
-\newcommand{\paika}{\mathfrak{s}}
 \newcommand{\ind}[1]{\mathfrak{#1}}
-\newcommand{\circc}{\tau}
 \newcommand{\arxivreference}[1]{\url{#1}}
 
+% Differential geometry
+\newcommand{\chris}[3]{\{{_{#1}}\!{^{#2}}\!{_{#3}}\}}
 \newcommand{\tensy}[2]{#1^{#2}}
 \newcommand{\tensa}[2]{#1_{#2}}
 \newcommand{\tensay}[3]{#1_{#2}^{\phantom{#2}#3}}
 \newcommand{\tensya}[3]{#1^{#2}_{\phantom{#2}#3}}
 
-
-% UNCOMMENT NEXT LINE FOR TRADITIONAL CIRCLE CONSTANT 2 PI
-%\renewcommand{\circc}{2\pi}
+% Dialog characters
+\newcommand{\hea}{\(\blacklozenge\)\;}
+\newcommand{\heb}{\(\Game\)\;}
 
 % Colors and indices
 \definecolor{safi}{RGB}{0,100,100}
@@ -110,14 +112,12 @@
 \newcommand{\cog}{{\color{safi}\bullet}}
 \newcommand{\coh}{{\color{yellow}\bullet}}
 \newcommand{\coi}{{\color{blue}\bullet}}
-\newcommand{\tyh}{\phantom{\bullet}}
-% UNCOMMENT NEXT LINE FOR TRADITIONAL GREEK INDICES
-%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\renewcommand{\coi}{\xi}\newcommand{\tyh}{\phantom{\alpha}}
 
-% Dialog characters
+% UNCOMMENT THE NEXT LINE FOR TRADITIONAL GREEK INDICES
+%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\renewcommand{\coi}{\xi}
 
-\newcommand{\hea}{\(\blacklozenge\)\;}
-\newcommand{\heb}{\(\Game\)\;}
+% UNCOMMENT THE NEXT LINE FOR THE TRADITIONAL CIRCLE CONSTANT 2 PI
+%\renewcommand{\circc}{2\pi}
 
 \begin{document}
 \frontmatter
@@ -142,9 +142,18 @@
 	This work is licensed under a Creative Commons Attribution 4.0 International License. See \url{http://creativecommons.org/licenses/by/4.0/} for the license and \url{http://github.com/konstakurki/time} for the source material.
 \end{titlingpage}
 \chapter{Change log}
+\begin{narration}
+This is an incomplete list of additions and changes made since the beginning of the writing.
+\end{narration}
+
+
 \textsc{June 28, 2015}\, Initial commit to \url{github.com/konstakurki/time}
+
+\newpage
 \tableofcontents
 \mainmatter
+\book{The classical picture}
+\part{The very elements}
 \chapter{The beginning}
 \hea Excuse me.
 
@@ -533,6 +542,7 @@ since \(\ddot{o}\equiv 0\). The principle of relativity could be stated as `Acce
 \heb Yeah they does. But if we want to focus on time, let's move on. Maybe we can come back to probabilities at some point?.
 
 \hea Yeah, let's do that.
+\chapter{Some physics}
 \section{Force and Lagrangians}
 \heb If you had to affect the motion of the stone somehow, what would you do?
 
@@ -577,6 +587,24 @@ This equation is called Newton's second law. The greater the mass of the particl
 \heb No, I'm just pointing out how lucky we are. Our task is so much easier.
 
 \heb And I can tell you that Newton's second law is pretty good a guess---it is valid at very large range of phenomena.
+\subsection{Particle in a gravitational field}
+\heb Let us take a simple example: a stone thrown straight up in the air. This is a nice example because we need only one number to describe the position of the stone, the height \(h\). Could you write down the equation of motion?
+
+\hea Well, I guess the only relevant force in the problem is the gravitational force. It points straight down. Let me call it \(G\). The equation of motion thus reads
+\begin{eqna}
+    G=m\ddot{h}.
+\end{eqna}
+The force \(G\) is probably constant; I don't feel any difference in the gravitational force between top and a bottom of a hill.
+
+\heb Yes, we can take it to be constant. We can choose to mass \(m\) to be the unit of mass, so we do not need to write it and we have just \(G=\ddot{h}\). This is a very simple differential equation which obviously is solved by some second degree polynomial. Try it!
+
+\hea Okay, I take
+\begin{eqna}
+    h(t)=at^2+bt+c
+\end{eqna}
+and substitute it to the equation. I get \(G=2a\). So \(a\) must be equal to \(G/2\) and \(b\) and \(c\) could be anything. This fits to my intuition according to which we need to specify the initial velocity and location to know the motion.
+
+\heb Perfect!
 \subsection{Kinetic energy}
 \heb In physics there is a concept called work, denoted by \(W\). What does work bring into your mind?
 
@@ -614,6 +642,7 @@ This is called the kinetic energy of the particle. We can also write it as
 \begin{eqna}
     T=\puoli mg_{\coa\cob}v^\coa v^\cob.
 \end{eqna}
+For the particle in the gravitational field this is just \(\puoli\dot{h}^2\) since we chose the unit of mass so that for that particle it is one.
 
 \heb Obviously, if we have many particles the total kinetic energy is just the sum of individual kinetic energies, since we must accelerate each particle independently of the others. Labeling particles with \(i\), we have
 \begin{eqna}
@@ -717,12 +746,142 @@ or, after defining a new function \(L(q,\dot{q}=T-V\), the Lagranngian of the sy
 \end{eqna}
 The equation of motion in this form is called the Lagrange's equation of motion.
 
+\hea What can you say about the potential energy of our particle in a gravitational field?
+
+\heb The force is constant, so it is almost trivial that it is the derivative of some constant \(\lambda\) times \(h\). The Lagrangian of the stone is therefore
+\begin{eqna}
+    L=\puoli\dot{h^2}-\lambda\,h.
+\end{eqna}
+\section{Action}
+\heb The Lagrangian is actually very cool and also useful function. Think about for example the vertically moving stone. If we negllect gravity, the Lagrangian is ridiculously simple, just
+\begin{eqna}
+    L=\puoli\dot{h}^2.
+\end{eqna}
+The equation of motion is very simple, isn't it?
+
+\hea Well yes, there are no forces so Newton's second law holds and \(\ddot{h}=0\). The velocity of the stone is constant.
+
+\heb Along the motion the Lagrangian has some value at every moment, so we can condsider its time integral. It is called action of the motion and is denoted by \(S\). Clearly \(S\) is just the time the motion takes times the average value of the Lagrangian.
+
+\heb Let's say we know something specific about the motion. We know the stone was at two particular moments \(t_a\) and \(t_b\) at at the heights \(h_a\) and \(h_2\).
+
+\hea Ok. So from this information we immediately can calculate the velocity of the stone since we know the stone moves with a constant velocity. And also the average value of the Lagrangian.
+
+\heb Now let us imagine that the stone did not have some constant velocity, but the motion still satisfies our boundary conditions. Such a motion is of course fictious, but we're equipped with an imagination. How does the action \(S\) change?
+
+\hea Hmm. I don't know, it probably depends on our imagination on a very complicated way.
+
+\heb But there is something that definitely happens. Think about the absolute value of the velocity.
+
+\hea Aha! The stone must do some zig zag and on average it must thus have a greater absolute value of the velocity. That means that the value of the action gets bigger.
+
+\heb So the realistic motion has the smalles \(S\) compared to the fictious motions.
+
+\hea if we now turn the gravity on, the Lagrangian gets a new term \(-\lambda h\). For simplicity now assume that \(h_a=h_b\). What can you say about the motion?
+
+\heb It must first go up and then down, all in a smooth fashion. We solved this and the answer was a parabola.
+
+\heb Now the avarage of the absolute value of the velocity is not anymore the smallest of all imaginable motions. Now the real motion does not anymore have the smallest average of the absolute value of the velocity of all the imaginable motions. But the potential energy term is negative and compensates.
+
+\hea Do you mean that by touring high in the potential the stone again manages to make the value of the action the lowest?
+
+\heb At least it seems so! If the stone visited at even higher altitudes that it actually does, it would probably make the average speed too high.
+
+\hea I see, and a parabola is probably the best compromise of having a fairly low average speed and a firly high potential at the same time.
+
+\heb We can put this so--called principle off least action on a firm ground.
+\subsection{Variation of the action}
+\heb Let us assume that we have a system which has a Lagrangian \(L(q,\dot{q}\) and the motion of the systems satisfies Lagrange's equation of motion. The action is
+\begin{eqna}
+    S=\int L(q,\dot{q})\,\dd t.
+\end{eqna}
+Now let us change the motion \(q(t)\) by a small amount, that is, we displace the stone at every moment a small amount \(\delta q(t)\).
+
+\heb The value of the Lagrangian changes a small amount \(\delta L\). The change is of course a function of time, but I do not bother to write the time dependece always explicitly. The change in the action is clearly
+\begin{eqna}
+    \delta S=\int\delta L\,\dd t.
+\end{eqna}
+Basic differential calculus tells us that
+\begin{eqna}
+    \delta L=\partial L\cdot\delta q+\dot{\partial}L\cdot\delta\dot{q}.
+\end{eqna}
+All these are of course functions of time.
+
+\hea What is \(\delta\dot{q}\)? I guess we can specify only \(\delta q\).
+
+\heb It is of course determined by \(\delta q\). See
+\begin{eqna}
+    \delta\dot{q}=\der{(q+\delta q)}{t}-\der{\delta q}{t}=\der{\delta q}{t}.
+\end{eqna}
+
+\hea Oh yes.
+
+\heb We defined \(p=\dot{\partial}L\), so now we have
+\begin{eqnb}
+    \delta L&=&\partial L\cdot\delta q+p\cdot\der{}{t}\delta q\\
+            &=&\partial L\cdot\delta q+\der{}{t}(p\cdot\delta q)-\dot{p}\cdot\delta q\\
+            &=&(\partial L-\dot{p})\cdot\delta q+\der{}{t}(p\cdot\delta q).
+\end{eqnb}
+This holds for any motion \(q(t)\), were it realistic or not, and any small variation \(\delta q(t)\). But we assumed that \(q(t)\) is a realistic motion andd satisfies the equation of motion, so the first term vanishes. The second term is a time derivative, so it is trivial to integrate it over time. We get
+\begin{eqna}
+    \delta S=[p\cdot\delta q]_A^B.
+\end{eqna}
+But when we talked about the stone, we considered only motions with the same boundary conditions, right! If we compare the realistic motion only to motions that are almost realisic, and begin and end at exactly same configuration, then \(\delta q(t_a)=\delta q(t_b)=0\) and therefore also \(\delta S=0\)!
+
+\subsection{Noether's theorem}
+\heb If we can change the motion of a physical system in such a way that changed motion is also a realistic, the system is said to possess a symmetry. We can for example think of the motion of a thrown rock. We can move the throw to another city, or perhaps a hundred meters up, and get another possible motion of the rock.
+
+\hea So you ar trying to say that the rock flies in the same way independently of the city and altitude where it has been thrown? I know that. You managed to choose pretty complicated words for expressing such a simple fact.
+
+\heb Please excuse me. The flying rock is saide to possess a translation invariance. But the flight of the rock is an arc. If you turn it on its side, we get a flight which turns lef or right but not down---the rock clearly do not possess roational invariance around an axe parallel to ground.
+
+\heb The translational invariance of the rock is a continuous symmetry, meaning that if we wish, we can do only a very small translation.
+
+\heb A realistic motion, for example an arc of the rock, has two significant, though equivalent, properties: it satisfies the equation of motion and the value of the action is stationary for it. So, what quantifies our symmetry transformed motion?
+
+\hea Obviously the same two properties.
+
+\heb Exactly. Say we perform a small symmetry transformation \(\delta q\) to the motion. The value of the action remains stationary with respecto variations which vanish at the endpoints if the change in the action depends only on the endpoints, that is,
+\begin{eqna}
+    \delta S=f(A)-f(B)
+\end{eqna}
+for some \(f(q,\dot{q})\). This means that it must hold that \(\delta L=\dot{f}\). On the other hand, for any small change in a realistic motion we got
+\begin{eqna}
+    \delta L=\der{}{t}(p\cdot\delta q).
+\end{eqna}
+In totality we have
+\begin{eqna}
+    \dot{f}=\der{}{t}(p\cdot\delta q),
+\end{eqna}
+in other words the quantity
+\begin{eqna}
+    p\cdot\delta q-f
+\end{eqna}
 
 
 
 
 
 
+% ALL symmetries of the flying stone
+
+
+% Constrained motion / Lagrange's multipliers
+
+% The range of applicability of the Lagrangian method
+
+
+%In one dimension \(\partial_x f(x)\) is a dual vector, because \(\partial_x f\dd x=\dd f\) is a number.
+
+\begin{comment}
+\chapter{Coordinating things}
+\section{Basis}
+\section{Isometries}
+\section{Groups}
+
+\chapter{Vibrations}
+\section{The simple armonic oscillator}
+\section{Vibrations of several degrees of freedom}
 \newpage
 
 
@@ -1006,7 +1165,7 @@ It is also a vector. We usually write \(D\) instead of \(\dd\) also before \(t\)
 
 \hea Like always, the covariant derivative obeys the Leibniz rule.
 
-\
+\end{comment}
 
 
 
